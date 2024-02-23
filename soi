@@ -1,0 +1,58 @@
+import UIKit
+
+// Die Hauptklasse für die iOS-Spielanwendung
+class MeineMobileSpielApp: UIViewController {
+    
+    // Deklaration der Spielvariablen
+    var spielerPunkte = 0
+    var spielDauer = 60
+    var timer: Timer?
+
+    // Outlets für die Anzeige von Punkten und die verbleibende Spielzeit
+    @IBOutlet weak var punkteLabel: UILabel!
+    @IBOutlet weak var zeitLabel: UILabel!
+    
+    // Funktion, die beim Start des Spiels aufgerufen wird
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        starteSpiel()
+    }
+
+    // Funktion zum Starten des Spiels
+    func starteSpiel() {
+        spielerPunkte = 0
+        punkteLabel.text = "Punkte: \(spielerPunkte)"
+        
+        verbleibendeSpielzeitAnzeigen()
+        
+        // Initialisierung des Timers für die Spielzeit
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(aktualisiereSpielzeit), userInfo: nil, repeats: true)
+    }
+
+    // Funktion zum Aktualisieren der verbleibenden Spielzeit
+    @objc func aktualisiereSpielzeit() {
+        spielDauer -= 1
+        verbleibendeSpielzeitAnzeigen()
+        
+        if spielDauer == 0 {
+            spielBeenden()
+        }
+    }
+
+    // Funktion zum Anzeigen der verbleibenden Spielzeit
+    func verbleibendeSpielzeitAnzeigen() {
+        zeitLabel.text = "Zeit: \(spielDauer)"
+    }
+
+    // Funktion zum Beenden des Spiels
+    func spielBeenden() {
+        timer?.invalidate() // Stoppt den Timer
+        // Hier können Sie weitere Aktionen beim Beenden des Spiels hinzufügen
+    }
+
+    // Aktion, die bei einem Touch auf den Bildschirm aufgerufen wird
+    @IBAction func bildschirmBeruehrt(_ sender: UITapGestureRecognizer) {
+        spielerPunkte += 1
+        punkteLabel.text = "Punkte: \(spielerPunkte)"
+    }
+}
