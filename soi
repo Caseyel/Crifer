@@ -39,6 +39,11 @@ class MeineMobileSpielApp: UIViewController {
         }
     }
 
+        if spielDauer == 0 {
+            spielBeenden()
+        }
+    }
+
     // Funktion zum Anzeigen der verbleibenden Spielzeit
     func verbleibendeSpielzeitAnzeigen() {
         zeitLabel.text = "Zeit: \(spielDauer)"
