@@ -1,14 +1,7 @@
 import UIKit
 
 // Die Hauptklasse für die iOS-Spielanwendung
-class MeineMobileSpielApp: UIViewController {
-    
-    // Deklaration der Spielvariablen
-    var spielerPunkte = 0
-    var spielDauer = 60
-    var timer: Timer?
-
-    // Outlets für die Anzeige von Punkten und die verbleibende Spielzeit
+class MeineMobileSpieie verbleibende Spielzeit
     @IBOutlet weak var punkteLabel: UILabel!
     @IBOutlet weak var zeitLabel: UILabel!
     
