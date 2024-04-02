@@ -10,9 +10,6 @@ class MeineMobileSpieie verbleibende Spielzeit
         super.viewDidLoad()
         starteSpiel()
     }
-
-    // Funktion zum Starten des Spiels
-    func starteSpiel() {
         spielerPunkte = 0
         punkteLabel.text = "Punkte: \(spielerPunkte)"
         
