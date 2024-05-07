@@ -2,17 +2,6 @@
         spielerPunkte = 0
         punkteLabel.text = "Punkte: \(spielerPunkte)"
         
-        verbleibendeSpielzeitAnzeigen()
-        
-        // Initialisierung des Timers für die Spielzeit
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(aktualisiereSpielzeit), userInfo: nil, repeats: true)
-    }
-
-    // Funktion zum Aktualisieren der verbleibenden Spielzeit
-    @objc func aktualisiereSpielzeit() {
-        spielDauer -= 1
-        verbleibendeSpielzeitAnzeigen()
-        
         if spielDauer == 0 {
             spielBeenden()
         }
