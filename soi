@@ -8,15 +8,6 @@
     }
 
         if spielDauer == 0 {
-            spielBeenden()
-        }
-    }
-
-    // Funktion zum Anzeigen der verbleibenden Spielzeit
-    func verbleibendeSpielzeitAnzeigen() {
-        zeitLabel.text = "Zeit: \(spielDauer)"
-    }
-
     // Funktion zum Beenden des Spiels
     func spielBeenden() {
         timer?.invalidate() // Stoppt den Timer
